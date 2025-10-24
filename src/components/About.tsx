@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import Image from 'next/image';
 import ProfileImage from '../Image/Profile.jpg';
 
 const skills = [
@@ -33,10 +34,10 @@ export default function About() {
             </h2>
             <div className="mb-12 fade-in">
               <p className="body-lg mb-6 text-text-secondary">
-                Bonjour ! Je suis Niaina, développeur full-stack passionné par la création d'applications web et logicielles modernes. Avec une expertise en JavaScript et TypeScript, ReactJS et NexJS, Python; je transforme des idées en solutions performantes et intuitives qui offrent une expérience utilisateur exceptionnelle. Toujours curieuse et innovante, je cherche à relever des défis ambitieux et à laisser une vraie empreinte digitale.
+                Bonjour ! Je suis Niaina, développeur full-stack passionné par la création d&apos;applications web et logicielles modernes. Avec une expertise en JavaScript et TypeScript, ReactJS et NexJS, Python; je transforme des idées en solutions performantes et intuitives qui offrent une expérience utilisateur exceptionnelle. Toujours curieuse et innovante, je cherche à relever des défis ambitieux et à laisser une vraie empreinte digitale.
               </p>
               <p className="body-lg text-text-secondary">
-                Mon approche combine créativité et expertise technique pour livrer des solutions qui dépassent les attentes. J'aime relever des défis complexes et transformer des idées innovantes en réalité numérique.
+                Mon approche combine créativité et expertise technique pour livrer des solutions qui dépassent les attentes. J&apos;aime relever des défis complexes et transformer des idées innovantes en réalité numérique.
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 fade-in">
@@ -54,8 +55,8 @@ export default function About() {
           <div className="skills-section flex flex-col gap-8 opacity-0 translate-x-12 transition-all duration-800 delay-400 md:order-none order-first">
             <div className="glass p-8 rounded-[20px] text-center relative fade-in">
               <div className="relative w-[120px] h-[120px] mx-auto mb-6">
-                <img 
-                  src={typeof ProfileImage === 'string' ? ProfileImage : ProfileImage.src}
+                <Image
+                  src={ProfileImage}
                   alt="Niaina Deborah - Développeuse Web"
                   width={200}
                   height={200}

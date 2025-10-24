@@ -50,7 +50,7 @@ export default function Contact() {
               Travaillons <span className="gradient-text">ensemble</span>
             </h2>
             <p className="body-lg text-text-secondary mb-12 fade-in">
-              Vous avez un projet en tête ? N'hésitez pas à me contacter pour en discuter. Je serais ravi de vous aider à concrétiser vos idées.
+              Vous avez un projet en tête ? N&apos;hésitez pas à me contacter pour en discuter. Je serais ravi de vous aider à concrétiser vos idées.
             </p>
             
             <div className="flex flex-col gap-6 fade-in">

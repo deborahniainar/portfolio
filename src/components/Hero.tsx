@@ -3,14 +3,13 @@
 import { useEffect, useState } from 'react';
 import { useScrollAnimation, useParallax } from '../hooks/useScrollAnimation';
 import HeroParticleSystem from './HeroParticleSystem';
+import type React from 'react';
+
+const phrases = ["Full Stack Developer", "Web Designer"];
 
 export default function Hero() {
   const [text, setText] = useState('');
   const [showCursor, setShowCursor] = useState(true);
-  const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
-  const [isTyping, setIsTyping] = useState(true);
-  
-  const phrases = ["Full Stack Developer", "Web Designer"];
   const { elementRef } = useScrollAnimation({ threshold: 0.2 });
   const { elementRef: parallaxRef, offset } = useParallax(0.3);
   
@@ -36,7 +35,6 @@ export default function Hero() {
         } else {
           // Pause at the end of typing
           typing = false;
-          setIsTyping(false);
           timeoutId = setTimeout(animateText, 2000);
         }
       } else {
@@ -48,9 +46,7 @@ export default function Hero() {
         } else {
           // Move to next phrase
           typing = true;
-          setIsTyping(true);
           phraseIndex = (phraseIndex + 1) % phrases.length;
-          setCurrentPhraseIndex(phraseIndex);
           timeoutId = setTimeout(animateText, 500);
         }
       }
@@ -99,7 +95,7 @@ export default function Hero() {
           </div>
           
           <p className="body-lg text-text-secondary mb-12 max-w-[500px]">
-            Passionnée par la création d'expériences numériques innovantes et performantes.
+            Passionnée par la création d&apos;expériences numériques innovantes et performantes.
             Je transforme vos idées en solutions web modernes et élégantes.
           </p>
           
