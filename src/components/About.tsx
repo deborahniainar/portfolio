@@ -47,7 +47,7 @@ export default function About() {
               </div>
               <div className="glass p-6 rounded-2xl text-center transition-all duration-300 hover:-translate-y-1">
                 <span className="heading-md text-primary block mb-2">3+</span>
-                <span className="body-sm">Années d'expérience</span>
+                <span className="body-sm">Années d&apos;expérience</span>
               </div>
             </div>
           </div>
