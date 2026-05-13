@@ -71,7 +71,7 @@ export default function Hero() {
   return (
     <section 
       id="home" 
-      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-background via-[#1a1a3a] to-background"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-[#DDD9B0] to-[#D4D0A0] dark:bg-[#0F0F23] dark:bg-gradient-to-br dark:from-[#0F0F23] dark:via-[#1a1a3a] dark:to-[#0F0F23]"
       ref={sectionRef}
     >
       <HeroParticleSystem />
@@ -100,10 +100,10 @@ export default function Hero() {
           </p>
           
           <div className="flex gap-6 items-center flex-wrap">
-            <button className="bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-[50px] font-semibold text-base transition-all duration-300 shadow-[0_4px_20px_rgba(99,102,241,0.3)] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(99,102,241,0.4)] glass-hover">
+            <button onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })} className="bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-[50px] font-semibold text-base transition-all duration-300 shadow-[0_4px_20px_rgba(99,102,241,0.3)] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(99,102,241,0.4)] glass-hover inline-block border-none cursor-pointer">
               Voir mes projets
             </button>
-            <button className="text-text-primary px-8 py-4 border-2 border-glass-border rounded-[50px] font-semibold text-base transition-all duration-300 bg-transparent hover:border-primary hover:text-primary hover:shadow-glow">
+            <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="text-text-primary px-8 py-4 border-2 border-glass-border rounded-[50px] font-semibold text-base transition-all duration-300 bg-transparent hover:border-primary hover:text-primary hover:shadow-glow inline-block border-none cursor-pointer">
               Me contacter
             </button>
           </div>

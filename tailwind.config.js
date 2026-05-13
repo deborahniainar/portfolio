@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   content: [
     "./src/**/*.{js,ts,jsx,tsx}",
     "./src/app/**/*.{js,ts,jsx,tsx}",
@@ -11,13 +12,14 @@ module.exports = {
         primary: '#6366F1',
         secondary: '#EC4899',
         accent: '#10B981',
-        background: '#0F0F23',
-        surface: '#1A1A2E',
-        'text-primary': '#F8FAFC',
-        'text-secondary': '#94A3B8',
         particle: '#8B5CF6',
-        'glass-bg': 'rgba(255, 255, 255, 0.05)',
-        'glass-border': 'rgba(255, 255, 255, 0.1)',
+        // Theme-aware tokens: all reference CSS variables so they adapt to light/dark
+        background: 'var(--background)',
+        surface: 'var(--surface)',
+        'text-primary': 'var(--text-primary)',
+        'text-secondary': 'var(--text-secondary)',
+        'glass-bg': 'var(--glass-bg)',
+        'glass-border': 'var(--glass-border)',
       },
       fontFamily: {
         heading: ['Space Grotesk', 'sans-serif'],

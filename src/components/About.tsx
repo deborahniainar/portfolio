@@ -20,35 +20,26 @@ export default function About() {
 
   return (
     <section 
-      className={`bg-gradient-to-b from-background via-surface to-background relative section ${
+      className={`bg-gradient-to-br from-[#DDD9B0] to-[#D4D0A0] dark:bg-[#0F0F23] dark:bg-gradient-to-br dark:from-[#0F0F23] dark:via-[#1a1a3a] dark:to-[#0F0F23] relative section ${
         isVisible ? '[&_.text-section]:opacity-100 [&_.text-section]:translate-x-0 [&_.skills-section]:opacity-100 [&_.skills-section]:translate-x-0' : ''
       }`}
       id="about" 
       ref={elementRef}
     >
-      <div className="container">
+      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_center,transparent_0%,transparent_40%,rgba(15,15,35,0.3)_70%,rgba(15,15,35,0.6)_100%)] pointer-events-none z-[0]"></div>
+      <div className="container relative z-[1]">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
           <div className="text-section opacity-0 -translate-x-12 transition-all duration-800 delay-200">
-            <h2 className="heading-lg mb-8 fade-in">
+            <h2 className="heading-lg mb-8 fade-in drop-shadow-[0_0_20px_rgba(128,128,128,0.4)]">
               À propos de <span className="gradient-text">moi</span>
             </h2>
             <div className="mb-12 fade-in">
               <p className="body-lg mb-6 text-text-secondary">
-                Bonjour ! Je suis Niaina, développeur full-stack passionné par la création d&apos;applications web et logicielles modernes. Avec une expertise en JavaScript et TypeScript, ReactJS et NexJS, Python; je transforme des idées en solutions performantes et intuitives qui offrent une expérience utilisateur exceptionnelle. Toujours curieuse et innovante, je cherche à relever des défis ambitieux et à laisser une vraie empreinte digitale.
+                Bonjour ! Je suis Niaina, développeuse full-stack passionnée par la création d&apos;applications web et logicielles modernes. Avec une expertise en JavaScript et TypeScript, ReactJS et NexJS, Python; je transforme des idées en solutions performantes et intuitives qui offrent une expérience utilisateur exceptionnelle. Toujours curieuse et innovante, je cherche à relever des défis ambitieux et à laisser une vraie empreinte digitale.
               </p>
               <p className="body-lg text-text-secondary">
                 Mon approche combine créativité et expertise technique pour livrer des solutions qui dépassent les attentes. J&apos;aime relever des défis complexes et transformer des idées innovantes en réalité numérique.
               </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 fade-in">
-              <div className="glass p-6 rounded-2xl text-center transition-all duration-300 hover:-translate-y-1">
-                <span className="heading-md text-primary block mb-2">10+</span>
-                <span className="body-sm">Projets réalisés</span>
-              </div>
-              <div className="glass p-6 rounded-2xl text-center transition-all duration-300 hover:-translate-y-1">
-                <span className="heading-md text-primary block mb-2">3+</span>
-                <span className="body-sm">Années d&apos;expérience</span>
-              </div>
             </div>
           </div>
           
@@ -68,7 +59,7 @@ export default function About() {
               <p className="body-md text-text-secondary">Développeuse Web</p>
             </div>
             
-            <div className="bg-glass-bg backdrop-blur-[20px] border border-glass-border rounded-[20px] p-8 fade-in">
+            <div className="glass rounded-[20px] p-8 fade-in">
               <h3 className="heading-sm mb-8 text-center text-text-primary">Compétences</h3>
               <div className="flex flex-col gap-6">
                 {skills.map((skill, index) => (
@@ -82,7 +73,7 @@ export default function About() {
                       <span className="body-md">{skill.name}</span>
                       <span className="body-sm">{skill.level}%</span>
                     </div>
-                    <div className="h-2 bg-white/10 rounded overflow-hidden relative">
+                    <div className="h-2 bg-black/10 dark:bg-white/10 rounded overflow-hidden relative">
                       <div 
                         className="h-full rounded transition-all duration-800 relative animate-skillLoad"
                         style={{ 

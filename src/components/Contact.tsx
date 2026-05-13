@@ -1,7 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import emailjs from '@emailjs/browser';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+
+// Initialize EmailJS
+if (typeof window !== 'undefined') {
+  emailjs.init('NyaVbPpK1WPqVgeZY');
+}
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -25,25 +31,41 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setSubmitted(true);
-    setFormData({ name: '', email: '', subject: '', message: '' });
-    
-    setTimeout(() => setSubmitted(false), 3000);
+    try {
+      await emailjs.send(
+        'service_0evldsi',
+        'template_6ikj6hg',
+        {
+          from_name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          to_email: 'deborahniainar@gmail.com'
+        }
+      );
+      
+      setIsSubmitting(false);
+      setSubmitted(true);
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      
+      setTimeout(() => setSubmitted(false), 3000);
+    } catch (error) {
+      console.error('Failed to send email:', error);
+      setIsSubmitting(false);
+      alert('Erreur lors de l\'envoi du message. Veuillez réessayer.');
+    }
   };
 
   return (
     <section 
-      className={`bg-gradient-to-b from-background to-surface relative section ${
+      className={`bg-gradient-to-br from-[#DDD9B0] to-[#D4D0A0] dark:bg-[#0F0F23] dark:bg-gradient-to-br dark:from-[#0F0F23] dark:via-[#1a1a3a] dark:to-[#0F0F23] relative section ${
         isVisible ? '[&_.info]:opacity-100 [&_.info]:translate-x-0 [&_.form-container]:opacity-100 [&_.form-container]:translate-x-0' : ''
       }`}
       id="contact" 
       ref={elementRef}
     >
-      <div className="container">
+      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_center,transparent_0%,transparent_40%,rgba(15,15,35,0.3)_70%,rgba(15,15,35,0.6)_100%)] pointer-events-none z-[0]"></div>
+      <div className="container relative z-[1]">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
           <div className="info opacity-0 -translate-x-12 transition-all duration-800 delay-200">
             <h2 className="heading-lg mb-6 fade-in">
@@ -106,7 +128,7 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="p-4 border-2 border-glass-border rounded-xl bg-white/5 text-text-primary font-inherit text-base transition-all duration-300 focus:outline-none focus:border-primary focus:shadow-glow focus:bg-white/8"
+                  className="p-4 border-2 border-glass-border rounded-xl bg-glass-bg text-text-primary font-inherit text-base transition-all duration-300 focus:outline-none focus:border-primary focus:shadow-glow focus:bg-glass-bg"
                 />
               </div>
               
@@ -119,7 +141,7 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="p-4 border-2 border-glass-border rounded-xl bg-white/5 text-text-primary font-inherit text-base transition-all duration-300 focus:outline-none focus:border-primary focus:shadow-glow focus:bg-white/8"
+                  className="p-4 border-2 border-glass-border rounded-xl bg-glass-bg text-text-primary font-inherit text-base transition-all duration-300 focus:outline-none focus:border-primary focus:shadow-glow focus:bg-glass-bg"
                 />
               </div>
               
@@ -132,7 +154,7 @@ export default function Contact() {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="p-4 border-2 border-glass-border rounded-xl bg-white/5 text-text-primary font-inherit text-base transition-all duration-300 focus:outline-none focus:border-primary focus:shadow-glow focus:bg-white/8"
+                  className="p-4 border-2 border-glass-border rounded-xl bg-glass-bg text-text-primary font-inherit text-base transition-all duration-300 focus:outline-none focus:border-primary focus:shadow-glow focus:bg-glass-bg"
                 />
               </div>
               
@@ -145,7 +167,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="p-4 border-2 border-glass-border rounded-xl bg-white/5 text-text-primary font-inherit text-base transition-all duration-300 resize-y min-h-[120px] focus:outline-none focus:border-primary focus:shadow-glow focus:bg-white/8"
+                  className="p-4 border-2 border-glass-border rounded-xl bg-glass-bg text-text-primary font-inherit text-base transition-all duration-300 resize-y min-h-[120px] focus:outline-none focus:border-primary focus:shadow-glow focus:bg-glass-bg"
                 />
               </div>
               

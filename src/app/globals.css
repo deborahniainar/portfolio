@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    /* Colors */
+    /* Colors - Dark Mode (default) */
     --primary: #6366F1;
     --secondary: #EC4899;
     --accent: #10B981;
@@ -26,6 +26,30 @@
     --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.3);
     --shadow-glow: 0 0 20px rgba(99, 102, 241, 0.3);
     
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Light Mode Colors */
+  html:not(.dark) {
+    --primary: #6366F1;
+    --secondary: #EC4899;
+    --accent: #10B981;
+    --background: #E8E4C2;
+    --surface: #F5F2E6;
+    --text-primary: #2A2820;
+    --text-secondary: #6B6453;
+    --particle: #8B5CF6;
+    --glass-bg: rgba(255, 255, 255, 0.45);
+    --glass-border: rgba(255, 255, 255, 0.7);
+    
+    /* Light mode specific shadows */
+    --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+    --shadow-glow: 0 0 20px rgba(99, 102, 241, 0.2);
+    
+    /* Same typography as dark mode */
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -56,6 +80,7 @@
     font-family: var(--font-body);
     line-height: 1.6;
     position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   a {
@@ -135,8 +160,8 @@
   }
 
   .glass-hover:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.15);
+    background: var(--glass-bg);
+    border-color: var(--glass-border);
     transform: translateY(-2px);
   }
 

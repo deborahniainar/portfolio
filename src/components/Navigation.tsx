@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import ThemeToggle from './ThemeToggle';
 
 const navItems = [
   { name: 'Accueil', href: '#home' },
@@ -108,7 +109,7 @@ export default function Navigation() {
             <button
               key={item.name}
               onClick={() => handleNavClick(item.href)}
-              className={`relative bg-none border-none text-text-secondary text-base font-medium cursor-pointer transition-all duration-300 px-4 py-2 rounded-lg hover:text-text-primary hover:bg-white/5 w-full md:w-auto text-center ${
+              className={`relative bg-none border-none text-text-secondary text-base font-medium cursor-pointer transition-all duration-300 px-4 py-2 rounded-lg hover:text-text-primary hover:bg-black/5 dark:hover:bg-white/5 w-full md:w-auto text-center ${
                 activeSection === item.href.substring(1) ? 'text-primary' : ''
               }`}
             >
@@ -120,19 +121,23 @@ export default function Navigation() {
           ))}
         </div>
         
-        <button
-          className="md:hidden bg-none border-none cursor-pointer p-2 relative w-[30px] h-[30px]"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle mobile menu"
-        >
-          <span className={`relative block w-full h-0.5 bg-text-primary transition-all duration-300 ${
-            isMobileMenuOpen ? 'bg-transparent' : ''
-          } before:content-[''] before:absolute before:w-full before:h-0.5 before:bg-text-primary before:transition-all before:duration-300 ${
-            isMobileMenuOpen ? 'before:-top-0 before:rotate-45' : 'before:-top-2'
-          } after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-text-primary after:transition-all after:duration-300 ${
-            isMobileMenuOpen ? 'after:-bottom-0 after:-rotate-45' : 'after:-bottom-2'
-          }`}></span>
-        </button>
+        <div className="flex items-center gap-4">
+          <ThemeToggle />
+          
+          <button
+            className="md:hidden bg-none border-none cursor-pointer p-2 relative w-[30px] h-[30px]"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle mobile menu"
+          >
+            <span className={`relative block w-full h-0.5 bg-text-primary transition-all duration-300 ${
+              isMobileMenuOpen ? 'bg-transparent' : ''
+            } before:content-[''] before:absolute before:w-full before:h-0.5 before:bg-text-primary before:transition-all before:duration-300 ${
+              isMobileMenuOpen ? 'before:-top-0 before:rotate-45' : 'before:-top-2'
+            } after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-text-primary after:transition-all after:duration-300 ${
+              isMobileMenuOpen ? 'after:-bottom-0 after:-rotate-45' : 'after:-bottom-2'
+            }`}></span>
+          </button>
+        </div>
       </div>
     </nav>
   );
