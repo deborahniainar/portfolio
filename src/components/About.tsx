@@ -41,6 +41,19 @@ export default function About() {
                 Mon approche combine créativité et expertise technique pour livrer des solutions qui dépassent les attentes. J&apos;aime relever des défis complexes et transformer des idées innovantes en réalité numérique.
               </p>
             </div>
+<<<<<<< HEAD
+=======
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 fade-in">
+              <div className="glass p-6 rounded-2xl text-center transition-all duration-300 hover:-translate-y-1">
+                <span className="heading-md text-primary block mb-2">10+</span>
+                <span className="body-sm">Projets réalisés</span>
+              </div>
+              <div className="glass p-6 rounded-2xl text-center transition-all duration-300 hover:-translate-y-1">
+                <span className="heading-md text-primary block mb-2">3+</span>
+                <span className="body-sm">Années d&apos;expérience</span>
+              </div>
+            </div>
+>>>>>>> 15bdcc6bf332fe636daffe8c688e6d202dcedcdb
           </div>
           
           <div className="skills-section flex flex-col gap-8 opacity-0 translate-x-12 transition-all duration-800 delay-400 md:order-none order-first">
