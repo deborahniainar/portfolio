@@ -16,6 +16,16 @@ interface HeroParticleSystemProps {
   className?: string;
 }
 
+const HERO_PARTICLE_COLORS = [
+  '#6366F1',
+  '#EC4899',
+  '#10B981',
+  '#8B5CF6',
+  '#F59E0B',
+  '#EF4444',
+] as const;
+const HERO_PARTICLE_COUNT = 100;
+
 export default function HeroParticleSystem(props: HeroParticleSystemProps = {}) {
   const { className = '' } = props;
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -23,9 +33,6 @@ export default function HeroParticleSystem(props: HeroParticleSystemProps = {}) 
   const animationRef = useRef<number | undefined>(undefined);
   const mouseRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
   const [isLoaded, setIsLoaded] = useState(false);
-
-  const colors = ['#6366F1', '#EC4899', '#10B981', '#8B5CF6', '#F59E0B', '#EF4444'];
-  const particleCount = 100;
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -41,7 +48,7 @@ export default function HeroParticleSystem(props: HeroParticleSystemProps = {}) 
 
     const createParticles = () => {
       particlesRef.current = [];
-      for (let i = 0; i < particleCount; i++) {
+      for (let i = 0; i < HERO_PARTICLE_COUNT; i++) {
         particlesRef.current.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
@@ -49,7 +56,7 @@ export default function HeroParticleSystem(props: HeroParticleSystemProps = {}) 
           vy: (Math.random() - 0.5) * 0.5,
           size: Math.random() * 3 + 2,
           opacity: Math.random() * 0.4 + 0.4,
-          color: colors[Math.floor(Math.random() * colors.length)]
+          color: HERO_PARTICLE_COLORS[Math.floor(Math.random() * HERO_PARTICLE_COLORS.length)]
         });
       }
     };

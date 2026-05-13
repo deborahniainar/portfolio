@@ -60,10 +60,8 @@ export function useParallax(speed: number = 0.5) {
 
   useEffect(() => {
     const handleScroll = () => {
-      const element = elementRef.current;
-      if (!element) return;
+      if (!elementRef.current) return;
 
-      const rect = element.getBoundingClientRect();
       const scrolled = window.scrollY;
       const rate = scrolled * speed;
       

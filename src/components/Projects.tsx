@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import bgWebsite from '../Image/bg-website.png';
 
@@ -121,12 +122,12 @@ export default function Projects() {
 							onMouseLeave={() => setActiveProject(null)}
 						>
 							<div className="relative h-[250px] overflow-hidden">
-								<img
+								<Image
 									src={project.image}
 									alt={`${project.title} - ${project.attribution}`}
-									width={400}
-									height={250}
-									className={`w-full h-full object-cover transition-transform duration-400 ${
+									fill
+									sizes="(max-width: 768px) 100vw, min(1200px, 90vw)"
+									className={`object-cover transition-transform duration-400 ${
 										activeProject === project.id ? 'scale-110' : ''
 									}`}
 								/>
